@@ -1321,19 +1321,40 @@ audio {
 	left: 8%;
 	transform: rotate(-8deg);
 }
-.photo-left2{
-	left: 8%;
-	top: 10%;
-	transform: rotate(-8deg);
-}
+
 .photo-right {
 	right: 8%;
 	transform: rotate(8deg);
 }
-.photo-right2{
-	right: 8%;
-	top:10%;
-	transform: rotate(8deg);
+.photo-left2 {
+	left: 20%;
+	transform: rotate(6deg);
+}
+
+.photo-right2 {
+	right: 20%;
+	transform: rotate(-6deg);
+}
+
+.photo-left2.photo-come {
+	animation-name: photo_come_left2;
+}
+.photo-right2.photo-come {
+	animation-name: photo_come_right2;
+}
+
+@keyframes photo_come_left2 {
+	0% { top: -600px; transform: rotate(6deg); }
+	33% { top: 60px; transform: rotate(-4deg); }
+	66% { top: 160px; transform: rotate(12deg); }
+	100% { top: 60px; transform: rotate(6deg); }
+}
+
+@keyframes photo_come_right2 {
+	0% { top: -600px; transform: rotate(-6deg); }
+	33% { top: 60px; transform: rotate(4deg); }
+	66% { top: 160px; transform: rotate(-12deg); }
+	100% { top: 60px; transform: rotate(-6deg); }
 }
 .photo-come {
 	animation: photo_come linear 6s;
