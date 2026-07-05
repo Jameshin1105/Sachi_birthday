@@ -1321,12 +1321,20 @@ audio {
 	left: 8%;
 	transform: rotate(-8deg);
 }
-
+.photo-left2{
+	left: 8%;
+	top: 10%;
+	transform: rotate(-8deg);
+}
 .photo-right {
 	right: 8%;
 	transform: rotate(8deg);
 }
-
+.photo-right2{
+	right: 8%;
+	top:10%;
+	transform: rotate(8deg);
+}
 .photo-come {
 	animation: photo_come linear 6s;
 	animation-fill-mode: forwards;
