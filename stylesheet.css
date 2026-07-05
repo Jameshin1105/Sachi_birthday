@@ -1308,7 +1308,69 @@ audio {
 	display: none;
 	font-weight: bold;
 }
+.photo {
+	max-width: 140px;
+	border: 6px solid #fff;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+	position: absolute;
+	top: -600px; /* starts off-screen, like the banner */
+	z-index: 2;
+}
 
+.photo-left {
+	left: 8%;
+	transform: rotate(-8deg);
+}
+
+.photo-right {
+	right: 8%;
+	transform: rotate(8deg);
+}
+
+.photo-come {
+	animation: photo_come linear 6s;
+	animation-fill-mode: forwards;
+}
+.row:has(.bannar) {
+	position: relative;
+}
+@keyframes photo_come {
+	0% {
+		top: -600px;
+	}
+	33% {
+		top: 0px;
+		transform: rotate(10deg);
+	}
+	66% {
+		top: 100px;
+		transform: rotate(-10deg);
+	}
+	100% {
+		top: 0px;
+	}
+}
+
+.photo-left.photo-come {
+	animation-name: photo_come_left;
+}
+.photo-right.photo-come {
+	animation-name: photo_come_right;
+}
+
+@keyframes photo_come_left {
+	0% { top: -600px; transform: rotate(-8deg); }
+	33% { top: 0px; transform: rotate(2deg); }
+	66% { top: 100px; transform: rotate(-15deg); }
+	100% { top: 0px; transform: rotate(-8deg); }
+}
+
+@keyframes photo_come_right {
+	0% { top: -600px; transform: rotate(8deg); }
+	33% { top: 0px; transform: rotate(-2deg); }
+	66% { top: 100px; transform: rotate(15deg); }
+	100% { top: 0px; transform: rotate(8deg); }
+}
 .btn-primary {
         border-color: #466baf;
         padding: 10px;
