@@ -1317,16 +1317,6 @@ audio {
 	display: none;
 	font-weight: bold;
 }
-.photos-row {
-	margin-top: 20px;
-}
-.photos-wrap {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	gap: 12px;
-}
 .photo {
 	max-width: 140px;
 	border: 6px solid #fff;

@@ -88,25 +88,10 @@ $('document').ready(function(){
 		});
 	}
 
-	function loopSix() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b6').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSix();
-		});
-	}
-	function loopSeven() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
-		$('#b7').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSeven();
-		});
-	}
-
 	$('#balloons_flying').click(function(){
 		$('.balloon-border').animate({top:-500},8000);
-		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
-		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
+		$('#b1,#b4,#b5').addClass('balloons-rotate-behaviour-one');
+		$('#b2,#b3').addClass('balloons-rotate-behaviour-two');
 		// $('#b3').addClass('balloons-rotate-behaviour-two');
 		// $('#b4').addClass('balloons-rotate-behaviour-one');
 		// $('#b5').addClass('balloons-rotate-behaviour-one');
@@ -117,8 +102,6 @@ $('document').ready(function(){
 		loopThree();
 		loopFour();
 		loopFive();
-		loopSix();
-		loopSeven();
 		
 		$(this).fadeOut('slow').delay(5000).promise().done(function(){
 			$('#cake_fadein').fadeIn('slow');
@@ -147,8 +130,8 @@ $('document').ready(function(){
 	function positionBalloons() {
 		var vw = $(window).width() / 2;
 		var step = balloonStep();
-		var ids = ['b11','b22','b33','b44','b55','b66','b77'];
-		var mult = [-3, -2, -1, 0, 1, 2, 3];
+		var ids = ['b11','b22','b33','b44','b55'];
+		var mult = [-2, -1, 0, 1, 2];
 		ids.forEach(function(id, i){
 			$('#'+id).animate({top: 240, left: vw + mult[i]*step}, 500);
 		});
@@ -160,8 +143,6 @@ $('document').ready(function(){
 		$('#b3').attr('id','b33');
 		$('#b4').attr('id','b44');
 		$('#b5').attr('id','b55');
-		$('#b6').attr('id','b66');
-		$('#b7').attr('id','b77');
 		positionBalloons();
 		$('.balloons').css('opacity','0.9');
 		$('.balloons h2').fadeIn(3000);
