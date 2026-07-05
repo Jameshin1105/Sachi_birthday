@@ -124,7 +124,7 @@ $('document').ready(function(){
 
 	function balloonStep() {
 		var w = $(window).width();
-		return Math.min(100, (w - 40) / 7);
+		return Math.min(100, (w - 40) / 5);
 	}
 	
 	function positionBalloons() {
