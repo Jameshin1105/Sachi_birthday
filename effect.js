@@ -133,7 +133,7 @@ $('document').ready(function(){
 		var ids = ['b11','b22','b33','b44','b55'];
 		var mult = [-2, -1, 0, 1, 2];
 		ids.forEach(function(id, i){
-			$('#'+id).animate({top: 240, left: vw + mult[i]*step}, 500);
+			$('#'+id).animate({top: 300, left: vw + mult[i]*step}, 500);
 		});
 	}	
 	$('#wish_message').click(function(){
