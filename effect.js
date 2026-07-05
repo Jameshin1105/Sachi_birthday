@@ -176,8 +176,8 @@ $('document').ready(function(){
 			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
 			i=i+1;
 			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-			if(i==22){
-				$("p:nth-child(21)").fadeOut('slow').promise().done(function () {
+			if(i==2){
+				$("p:nth-child(1)").fadeOut('slow').promise().done(function () {
 					$('#video').fadeIn('slow');
 				});
 				
@@ -195,6 +195,16 @@ $('document').ready(function(){
 	$('#video').click(function(){
 		$(this).fadeOut('slow');
 		$('#videoModal').css('display', 'flex');
+		var audio = $('.song')[0];
+		audio.pause();
+		audio.currentTime=0;
+	})
+	$('#skipVideo').click(function(){
+		$(this).fadeOut('slow');
+		$('#videoModal').css('display', 'none');
+		var audio = $('.song')[0];
+		audio.play();
+		$('#restart').fadeIn('fast');
 	})
 	$('#restart').click(function(){
 		// turn bulbs off first for a nice visual cue
