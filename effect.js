@@ -127,15 +127,40 @@ $('document').ready(function(){
 		return Math.min(100, (w - 40) / 5);
 	}
 	
-	function positionBalloons() {
-		var vw = $(window).width() / 2;
-		var step = balloonStep();
-		var ids = ['b11','b22','b33','b44','b55'];
-		var mult = [-2, -1, 0, 1, 2];
-		ids.forEach(function(id, i){
-			$('#'+id).animate({top: 300, left: vw + mult[i]*step}, 500);
-		});
-	}	
+	// 풍선 5개를 화면 가로 중앙에 정렬하고, 배너 아래에 배치하는 함수
+function positionBalloons() {
+	var ids = ['b11','b22','b33','b44','b55'];
+
+	// 아직 balloons_flying 단계 전이라 id가 안 바뀌었으면 아무것도 하지 않음
+	if ($('#b11').length === 0) return;
+
+	var gap = 10; // 풍선 사이 간격(px). 원하는 만큼 조절 가능
+	var widths = ids.map(function(id){
+		return $('#' + id).outerWidth(true);
+	});
+	var totalWidth = widths.reduce(function(sum, w){ return sum + w; }, 0) + gap * (ids.length - 1);
+
+	var vw = $(window).width();
+	var startLeft = (vw - totalWidth) / 2; // 그룹 전체를 중앙 정렬하는 시작 좌표
+
+	// 배너 아래로 오도록 top 위치 계산 (배너가 없으면 기존 300 값 사용)
+	var topPos = 300;
+	if ($('.bannar').length) {
+		topPos = $('.bannar').position().top + $('.bannar').outerHeight() + 20;
+	}
+
+	var currentLeft = startLeft;
+	ids.forEach(function(id, i){
+		$('#' + id).animate({ top: topPos, left: currentLeft }, 500);
+		currentLeft += widths[i] + gap;
+	});
+}
+
+$(window).resize(function(){
+	$('#b1,#b2,#b3,#b4,#b5').stop();
+	positionBalloons();
+});
+
 	$('#wish_message').click(function(){
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
 		$('#b1').attr('id','b11');
