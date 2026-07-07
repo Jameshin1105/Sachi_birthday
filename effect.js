@@ -188,8 +188,8 @@ $(window).resize(function(){
 			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
 			i=i+1;
 			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-			if(i==2){
-				$("p:nth-child(1)").fadeOut('slow').promise().done(function () {
+			if(i==23){
+				$("p:nth-child(22)").fadeOut('slow').promise().done(function () {
 					$('#video').fadeIn('slow');
 				});
 				
